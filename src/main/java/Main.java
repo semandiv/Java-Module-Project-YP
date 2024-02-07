@@ -1,23 +1,26 @@
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-        int numbersOfFriends;
+        Scanner scanner = new Scanner(System.in).useLocale(Locale.ENGLISH);
         Calculator calc;
 
         System.out.println("Приветствую вас!");
         System.out.println("На сколько человек сегодня хотите разделить счёт?");
 
+        //Проверяем, что введено правильное значение числа друзей
         while (true) if (scanner.hasNextInt()) {
-            numbersOfFriends = scanner.nextInt();
+            int numbersOfFriends = scanner.nextInt();
+
+            //если число друзей верного формата, запускаем калькулятор и весь процесс
             if (numbersOfFriends > 1) {
                 System.out.println("Отлично! Делим счёт на " + numbersOfFriends + " человек!");
-                calc = new Calculator(numbersOfFriends);
+                calc = new Calculator(numbersOfFriends, scanner);
                 calc.start();
                 break;
-            } else if (numbersOfFriends == 1) {
+            } else if (numbersOfFriends == 1) {//если указал число 1, то выдаем соответствующее уведомление и завершаем программу
                 System.out.println("Вам не нужно делить счёт, вы оплачиваете его полностью сами.");
                 break;
             } else {
