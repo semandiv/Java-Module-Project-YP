@@ -22,6 +22,6 @@ public class Formatter {
     }
 
     public static String doubleFormat (double value){ //Возвращает дробь в виде строки в нужном формате
-        return String.format(Locale.ENGLISH,"%.2f", value);
+        return String.format("%.2f", value);
     }
 }
