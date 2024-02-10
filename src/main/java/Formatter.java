@@ -1,7 +1,6 @@
 //Класс Formatter имеет два статичных метода - выводит название валюты (рубли) в правильном склонении
 //и выводит десятичную дробь в виде строки с двумя знаками после десятичного делителя
 import static java.lang.Math.floor;
-import java.util.Locale;
 
 public class Formatter {
     public static String currencyName (double value){ //Возвращает слово "рубль" в правильном виде в зависимости от количества рублей
@@ -22,6 +21,6 @@ public class Formatter {
     }
 
     public static String doubleFormat (double value){ //Возвращает дробь в виде строки в нужном формате
-        return String.format(Locale.ENGLISH,"%.2f", value);
+        return String.format("%.2f", value);
     }
 }
