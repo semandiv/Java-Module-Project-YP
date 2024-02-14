@@ -7,17 +7,15 @@ public class Formatter {
         //РЕВЬЮЕРУ: в ТЗ к данному заданию четко прописано, как должно склоняться слово "рубль": без учета копеек! То есть, "1.35 рубль", а не "1.35 рублей".
         //Метод работает именно так, как указано в ТЗ
 
-        String result;
-        int floorValue = (int)floor(value); //округляем дробь до целого, используется floor для уверенности, что округлит как надо
-
-        if ((floorValue != 11) && (floorValue%10 == 1)){
-            result = "рубль";
-        } else if (((floorValue%10 > 1)&&(floorValue%10 < 5)) && ((floorValue < 12) || (floorValue > 14))) {
-            result = "рубля";
+        if ((int)value%100 >= 11 && (int)value%100 <= 14){
+            return "рублей";
         } else {
-            result = "рублей";
+            switch (((int)value%10)) {
+                case 1: return "рубль";
+                case 2, 3, 4: return "рубля";
+                default: return "рублей";
+            }
         }
-        return result;
     }
 
     public static String doubleFormat (double value){ //Возвращает дробь в виде строки в нужном формате
